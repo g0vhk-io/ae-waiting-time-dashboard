@@ -1,6 +1,8 @@
 const resolve = require('path').resolve;
 const webpack = require('webpack');
 const dotenv = require('dotenv').config({path: __dirname + '/.env'});
+const CopyPlugin = require('copy-webpack-plugin');
+
 
 const BABEL_CONFIG = {
   presets: [
@@ -45,12 +47,14 @@ const config = {
 
   // Optional: Enables reading mapbox token from environment variable
   plugins: [
-    new webpack.EnvironmentPlugin({'MAPBOX_ACCESS_TOKEN': dotenv.MAPBOX_ACCESS_TOKEN})
+    new webpack.EnvironmentPlugin({'MAPBOX_ACCESS_TOKEN': dotenv.MAPBOX_ACCESS_TOKEN}),
+    new CopyPlugin([
+      { from: './index.html', to: 'index.html' },
+      { from: './app.css', to: 'app.css' },
+    ]),
   ]
 };
 
-
-console.log(process.env.MAPBOX_ACCESS_TOKEN);
 
 module.exports = env => env && env.local ?
   require('../webpack.config.local')(config)(env) : config;
