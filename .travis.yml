@@ -2,7 +2,7 @@ sudo: required
 env:
   global:
     - COMMIT=${TRAVIS_COMMIT::8}
-    - REPO=budgetq
+    - REPO=ae-waiting-time-dashboards
     - ORG=g0vhk
 
 services:
