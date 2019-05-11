@@ -1,9 +1,6 @@
-// NOTE: To use this example standalone (e.g. outside of repo)
-// delete the local development overrides at the bottom of this file
-
-// avoid destructuring for older Node version support
 const resolve = require('path').resolve;
 const webpack = require('webpack');
+const dotenv = require('dotenv').config({path: __dirname + '/.env'});
 
 const BABEL_CONFIG = {
   presets: [
@@ -48,10 +45,12 @@ const config = {
 
   // Optional: Enables reading mapbox token from environment variable
   plugins: [
-    new webpack.EnvironmentPlugin(['MapboxAccessToken'])
+    new webpack.EnvironmentPlugin({'MAPBOX_ACCESS_TOKEN': dotenv.MAPBOX_ACCESS_TOKEN})
   ]
 };
 
-// Enables bundling against src in this repo rather than the installed version
+
+console.log(process.env.MAPBOX_ACCESS_TOKEN);
+
 module.exports = env => env && env.local ?
   require('../webpack.config.local')(config)(env) : config;
