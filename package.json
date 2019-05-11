@@ -2,7 +2,7 @@
   "scripts": {
     "build": "webpack",
     "start": "node server.js",
-    "start-local": "webpack-dev-server --env.local --progress --hot --open"
+    "start-local": "webpack-dev-server --host 0.0.0.0 --progress --hot --open"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -13,6 +13,7 @@
     "immutable": "^3.8.1",
     "react": "^16.3.0",
     "react-bootstrap": "^1.0.0-beta.8",
+    "react-component-octicons": "^1.8.0",
     "react-dom": "^16.3.0",
     "react-map-gl": "^4.0.0",
     "shards-react": "^1.0.3"

@@ -1,21 +1,23 @@
 body {
   margin: 0;
   font-family: Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 .row {
-  display: flex;
-  width: 100%;
+  width: 105vw;
 }
 
 #rank {
-  flex: 20%;
   text-align: center;
 }
+.tab {
+  margin-left:10px;
+}
 
-#map {
+.tabPane {
+  width: 105vw;
   height: 100vh;
-  flex: 80%;
 }
 
 label {
@@ -41,15 +43,16 @@ input {
 }
 
 .marker {
-  width: 120px;
-  border: 1px solid black;
-  padding:2px;
-  font-size: 12pt;
-  background-color:rgba(255, 255, 255);
+  min-width: 100px;
+  font-size: 10pt;
+  padding: 2px;
+  font-color: white;
+  background-color:rgba(256, 256, 256, 0.8);
 }
 
 .green {
   color: green;
+  font-weight: bold;
 }
 
 .black {
@@ -58,6 +61,7 @@ input {
 
 .red {
   color: red;
+  font-weight: bold;
 }
 
 .indexJumbotron {

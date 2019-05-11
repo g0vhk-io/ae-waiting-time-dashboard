@@ -2,7 +2,7 @@ const resolve = require('path').resolve;
 const webpack = require('webpack');
 const dotenv = require('dotenv').config({path: __dirname + '/.env'});
 const CopyPlugin = require('copy-webpack-plugin');
-
+const path = require('path');
 
 const BABEL_CONFIG = {
   presets: [
@@ -25,12 +25,6 @@ const config = {
     library: 'App'
   },
 
-  devServer: {
-    contentBase: [
-      __dirname,
-      resolve(__dirname, '../')
-    ]
-  },
 
   module: {
     rules: [{
@@ -55,6 +49,4 @@ const config = {
   ]
 };
 
-
-module.exports = env => env && env.local ?
-  require('../webpack.config.local')(config)(env) : config;
+module.exports = config;
