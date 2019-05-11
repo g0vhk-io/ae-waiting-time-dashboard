@@ -12,7 +12,6 @@ script:
     - echo "MapboxAccessToken=$MAPBOX_ACCESS_TOKEN" > .env
     - yarn install
     - yarn build
-    - yarn lint
 
 after_success:
     - docker build -t $ORG/$REPO:$COMMIT .
