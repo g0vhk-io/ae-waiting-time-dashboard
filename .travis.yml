@@ -9,7 +9,7 @@ services:
   - docker
 
 script:
-    - echo "MapboxAccessToken=$MAPBOX_ACCESS_TOKEN" > .env
+    - echo "MAPBOX_ACCESS_TOKEN=$MAPBOX_ACCESS_TOKEN" > .env
     - yarn install
     - yarn build
 
